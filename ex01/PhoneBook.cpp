@@ -6,13 +6,14 @@
 /*   By: haru <haru@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 22:02:32 by haru              #+#    #+#             */
-/*   Updated: 2025/12/26 22:06:44 by haru             ###   ########.fr       */
+/*   Updated: 2025/12/26 22:12:09 by haru             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
+#include <cstdlib> 
 
 PhoneBook::PhoneBook() : count(0) {
 }
