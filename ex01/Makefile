@@ -1,19 +1,35 @@
-NAME = phonebook
+NAME = ex01
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -Iinc -std=c++98
 
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
-OBJS = $(SRCS:.cpp=.o)
+OBJ_DIR = obj
+OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
-all: $(NAME)
+# Default rule
+all: $(OBJ_DIR) $(NAME)
 
+# Create obj/ directory if it doesn't exist
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+# Link object files
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
+# Compile .cpp to .o inside obj/
+$(OBJ_DIR)/%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Clean object files
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
+# Clean object files and executable
 fclean: clean
 	rm -f $(NAME)
 
+# Rebuild everything
 re: fclean all
+
+.PHONY: all clean fclean re

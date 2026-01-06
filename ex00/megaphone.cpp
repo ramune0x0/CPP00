@@ -11,15 +11,13 @@
 /* ************************************************************************** */
 
 #include <iostream>
- 
-// とりあえず、何かが入力されたら* LOUD AND UNBEARABLE FEEDBACK NOISE *と出力する関数を作る
-// 次に、コマンドラインから入力を受け取ってそのまま出力する関数を作る
-// アルファベットの小文字が来たらその文字を大文字にする分岐を作る
+
+
 int main(int argc,char **argv)
-{ 
+{
     if(argc < 2)
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl ;
-    else 
+    else
     {
         for(int i=1;i<argc;i++)
         {
@@ -29,7 +27,7 @@ int main(int argc,char **argv)
                 if(islower(c))
                     c = (char)toupper(c);
                 std::cout << c;
-            }          
+            }
         }
         std::cout << std::endl;
     }
