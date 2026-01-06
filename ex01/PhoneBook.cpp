@@ -13,7 +13,8 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
-#include <cstdlib> 
+#include <cstdlib>
+#include <cctype>
 
 PhoneBook::PhoneBook() : count(0) {
 }
@@ -22,7 +23,8 @@ static std::string readField(const std::string& prompt) {
     std::string s;
     while (s.empty()) {
         std::cout << prompt;
-        std::getline(std::cin, s);
+        if (!std::getline(std::cin, s))
+            exit(0);
     }
     return s;
 }
@@ -69,9 +71,19 @@ void PhoneBook::search() const {
 
     std::cout << "Index: ";
     std::string input;
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input))
+        return;
+    if (input.empty()) {
+        std::cout << "Invalid index\n";
+        return;
+    }
+    for (size_t i = 0; i < input.length(); i++) {
+        if (!std::isdigit(input[i])) {
+            std::cout << "Invalid index\n";
+            return;
+        }
+    }
     int idx = std::atoi(input.c_str());
-
     if (idx < 0 || idx >= total) {
         std::cout << "Invalid index\n";
         return;
