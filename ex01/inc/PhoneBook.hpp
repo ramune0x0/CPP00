@@ -15,7 +15,8 @@
 
 #include "Contact.hpp"
 
-class PhoneBook {
+class PhoneBook
+{
 private:
     Contact contacts[8];
     int count;
@@ -27,5 +28,3 @@ public:
 };
 
 #endif
-
-

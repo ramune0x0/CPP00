@@ -1,6 +1,6 @@
 NAME = ex01
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -Iinc -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -pedantic -Iinc -std=c++98
 
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
 OBJ_DIR = obj
