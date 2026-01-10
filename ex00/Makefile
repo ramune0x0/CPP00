@@ -1,6 +1,6 @@
 NAME = megaphone
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -pedantic -std=c++98
 
 SRCS = megaphone.cpp
 OBJ_DIR = obj
@@ -9,7 +9,7 @@ OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 # Default rule
 all: $(OBJ_DIR) $(NAME)
 
-# Create obj/ directory if it doesn't exist
+# Create obj/ directory
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
